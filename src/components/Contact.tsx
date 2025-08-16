@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center py-16 bg-white neumorphic bg-white ml-20 mr-20 mb-20"
+      className="min-h-screen flex items-center py-16 bg-white ml-20 mr-20 mb-20"
       aria-label="Contact - Ayub Liaqat"
     >
       <div className="max-w-5xl mx-auto px-4 w-full">
@@ -22,7 +22,7 @@ export default function Contact() {
           📩 Get in Touch
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="neumorphic bg-white grid md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.form
             className="neumorphic bg-white rounded-2xl p-8 bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] space-y-6"

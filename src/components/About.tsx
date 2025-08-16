@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="neumorphic bg-white min-h-screen flex flex-col items-center py-16 ml-20 mr-20"
+      className="min-h-screen flex flex-col items-center py-16 px-6"
       aria-label="About Section - Ayub Liaqat"
     >
       {/* Main Heading */}
@@ -21,17 +21,22 @@ export default function About() {
         About Me
       </motion.h2>
 
-      <div className="max-w-6xl mx-auto w-full px-6 md:px-12 grid md:grid-cols-2 gap-2 items-center">
+      {/* Content Grid with floating animation */}
+      <motion.div
+        className="neumorphic bg-white max-w-5xl w-full mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-6 items-center rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
+        animate={{ y: [0, -10, 0, 10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      >
         {/* Left Column - Cards */}
         <div className="flex flex-col gap-6">
           {/* Education Card */}
           <motion.div
-            className="neumorphic bg-white rounded-2xl p-6 shadow-lg"
+            className="neumorphic bg-white rounded-2xl p-6 shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0 }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.04 }}
           >
             <h2 className="text-2xl font-bold text-[#1e3d59] mb-3">
               🎓 Education
@@ -46,12 +51,12 @@ export default function About() {
 
           {/* Resume Card */}
           <motion.div
-            className="neumorphic bg-white rounded-2xl p-6 shadow-lg"
+            className="neumorphic bg-white rounded-2xl p-6 shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.04 }}
           >
             <h2 className="text-2xl font-bold text-[#1e3d59] mb-3">📄 Resume</h2>
             <p className="text-gray-700 mb-4">
@@ -61,7 +66,7 @@ export default function About() {
             <a
               href="/Ayub_Liaqat_Resume.pdf"
               target="_blank"
-              className="px-6 py-2 rounded-xl font-semibold bg-[#1e3d59] text-white shadow-lg hover:scale-105 transition-transform duration-300"
+              className="px-6 py-2 rounded-xl font-semibold bg-[#1e3d59] text-white shadow-md hover:scale-105 transition-transform duration-300"
             >
               Download Resume
             </a>
@@ -75,20 +80,20 @@ export default function About() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          whileHover={{ scale: 1.03 }}
+          whileHover={{ scale: 1.04 }}
         >
-          <div className="neumorphic bg-white rounded-2xl p-4 shadow-lg">
+          <div className="neumorphic bg-white rounded-2xl p-4 shadow-[0_8px_24px_rgba(0,0,0,0.15)]">
             <Image
               src="/assets/ayub.png"
               alt="Ayub Liaqat - Full Stack Developer"
-              width={300}
-              height={300}
+              width={280}
+              height={280}
               className="rounded-2xl object-cover"
               priority
             />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -74,7 +74,7 @@ export default function Skills() {
             {languages.map((lang, index) => (
               <motion.li
                 key={index}
-                className="neumorphic bg-white px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition"
+                className="px-4 py-2 rounded-lg neumorphic bg-white hover:bg-gray-200 transition"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
