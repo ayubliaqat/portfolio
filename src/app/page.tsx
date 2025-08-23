@@ -75,11 +75,6 @@ export default function HomePage() {
         <Projects />
       </section>
 
-      {/* ACHIEVEMENTS */}
-      <section id="achievements" aria-label="Career Achievements">
-        <Achievements />
-      </section>
-
       {/* CONTACT */}
       <footer id="contact" aria-label="Contact Ayub Liaqat">
         <Contact />

@@ -4,38 +4,34 @@ import { motion } from "framer-motion";
 import { Code, Database, Cloud, Brain, Smartphone, Shield } from "lucide-react";
 
 export default function Expertise() {
-  const expertise = [
-    {
-      icon: <Code className="w-8 h-8 text-[#1e3d59]" />,
-      title: "Full Stack Web Development",
-      desc: "Building modern, responsive, and scalable web applications using MERN, Next.js, and Spring Boot.",
-    },
-    {
-      icon: <Database className="w-8 h-8 text-[#1e3d59]" />,
-      title: "Backend APIs & Microservices",
-      desc: "Designing secure, high-performance REST & GraphQL APIs with Node.js, Django, and FastAPI.",
-    },
-    {
-      icon: <Cloud className="w-8 h-8 text-[#1e3d59]" />,
-      title: "Cloud & DevOps",
-      desc: "Deploying and managing apps on AWS, Azure, Docker, and Kubernetes with CI/CD pipelines.",
-    },
-    {
-      icon: <Brain className="w-8 h-8 text-[#1e3d59]" />,
-      title: "AI & Data Science",
-      desc: "Applying ML models, data analysis, and automation with Python, TensorFlow, and MATLAB.",
-    },
-    {
-      icon: <Smartphone className="w-8 h-8 text-[#1e3d59]" />,
-      title: "Mobile-Friendly Design",
-      desc: "Creating responsive and mobile-first designs for seamless user experiences.",
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-[#1e3d59]" />,
-      title: "Security & Scalability",
-      desc: "Implementing authentication, authorization, and performance tuning for production-ready systems.",
-    },
-  ];
+const expertise = [
+  {
+    icon: <Code className="w-8 h-8 text-[#1e3d59]" />,
+    title: "Full Stack Next.js Development",
+    desc: "Building scalable web applications with Next.js, React.js, Node.js, and Express.js, using SSR, SSG, and API routes.",
+  },
+  {
+    icon: <Database className="w-8 h-8 text-[#1e3d59]" />,
+    title: "APIs & Databases",
+    desc: "Designing REST & GraphQL APIs, integrating with MongoDB and PostgreSQL for robust full-stack applications.",
+  },
+  {
+    icon: <Cloud className="w-8 h-8 text-[#1e3d59]" />,
+    title: "Deployment & Cloud",
+    desc: "Deploying Next.js apps on Vercel, Netlify, AWS, and using Docker with CI/CD pipelines for efficient workflows.",
+  },
+  {
+    icon: <Smartphone className="w-8 h-8 text-[#1e3d59]" />,
+    title: "Responsive & UI Design",
+    desc: "Creating mobile-first, responsive, and user-friendly interfaces using Tailwind CSS and modern UI best practices.",
+  },
+  {
+    icon: <Shield className="w-8 h-8 text-[#1e3d59]" />,
+    title: "Security & Performance",
+    desc: "Implementing authentication, authorization, caching, and performance optimization for production-ready Next.js apps.",
+  },
+];
+
 
   return (
     <section

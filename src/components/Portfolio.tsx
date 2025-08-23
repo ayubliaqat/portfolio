@@ -5,36 +5,46 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Courier Tracking Platform",
+    title: "Zappysols",
     description:
-      "A web app to track multiple courier services with real-time updates using Next.js and Supabase.",
-    tech: ["Next.js", "Supabase", "TypeScript"],
-    demo: "https://your-demo-link.com",
-    github: "https://github.com/your-repo",
+      "A software development company website showcasing services and projects using Next.js.",
+    demo: "https://zappysols.com/",
+    github: "https://github.com/ayubliaqat/zappysols",
   },
   {
-    title: "AI Chatbot",
+    title: "Luxino",
     description:
-      "A chatbot powered by Python, FastAPI, and OpenAI API for natural conversation handling.",
-    tech: ["Python", "FastAPI", "OpenAI API"],
+      "An e-commerce site for a sneaker brand with product listings and secure checkout.",
     demo: "#",
     github: "#",
   },
   {
-    title: "E-Commerce App",
+    title: "TrackingOdyssey",
     description:
-      "Full-featured MERN stack e-commerce platform with authentication, payments, and order tracking.",
-    tech: ["MongoDB", "Express", "React", "Node.js"],
-    demo: "#",
-    github: "#",
+      "A courier tracking platform providing real-time shipment updates across multiple services.",
+    demo: "https://trackingodyssey.com/",
+    github: "https://github.com/ayubliaqat/trackingodyssey",
   },
   {
-    title: "Data Dashboard",
+    title: "ElectricityBillTracker",
     description:
-      "Interactive data visualization dashboard using React and D3.js for insights.",
-    tech: ["React", "D3.js", "TailwindCSS"],
-    demo: "#",
-    github: "#",
+      "A simple web app to check and manage electricity bills online efficiently.",
+    demo: "https://pakbill.vercel.app/",
+    github: "https://github.com/ayubliaqat/pakbill",
+  },
+  {
+    title: "Professional Portfolio",
+    description:
+      "A clean and responsive personal portfolio to showcase projects and skills.",
+    demo: "https://ayubliaqat.vercel.app/",
+    github: "https://github.com/ayubliaqat/portfolio",
+  },
+  {
+    title: "TrackParcel",
+    description:
+      "A courier tracking website offering live parcel status updates and integration.",
+    demo: "https://trackparcels.vercel.app/",
+    github: "https://github.com/ayubliaqat/trackparcels",
   },
 ];
 
@@ -72,16 +82,6 @@ export default function Projects() {
                 {project.title}
               </h3>
               <p className="text-gray-700 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((t, i) => (
-                  <span
-                    key={i}
-                    className="bg-[#1e3d59]/10 text-[#1e3d59] px-3 py-1 rounded-full text-sm font-medium"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
               <div className="flex gap-4">
                 <Link
                   href={project.demo}

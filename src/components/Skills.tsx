@@ -4,29 +4,21 @@ import { motion } from "framer-motion";
 
 export default function Skills() {
   const languages = [
-    "Python",
     "JavaScript",
     "TypeScript",
     "Java",
     "C/C++",
     "HTML/CSS",
-    "MATLAB",
   ];
 
   const technologies = [
-    "Node.js",
+    "Next.js",
     "Express",
     "React",
-    "Next.js",
-    "Spring Boot",
-    "FastAPI",
-    "Flask",
-    "Django",
+    "Node.js",
     "MongoDB",
     "SQL",
-    "Redis",
-    "Docker",
-    "AWS",
+    "Tailwind CSS",
     "Azure",
   ];
 

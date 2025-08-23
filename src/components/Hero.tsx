@@ -32,7 +32,7 @@ export default function Hero() {
 
           {/* Subheading (semantic h2 for SEO) */}
           <h2 className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8">
-            Building smart, stunning full-stack websites.
+           Full-stack website developer | Next.js Expert
           </h2>
 
           {/* Contact Info */}
@@ -59,7 +59,7 @@ export default function Hero() {
               href="https://github.com/ayubliaqat"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-400 text-2xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded"
+              className="hover:text-orange-400 text-2xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded"
               aria-label="GitHub"
             >
               <FaGithub aria-hidden="true" />
@@ -69,7 +69,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/ayub-liaqat-716a9a11a/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-400 text-2xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded"
+              className="hover:text-orange-400 text-2xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded"
               aria-label="LinkedIn"
             >
               <FaLinkedin aria-hidden="true" />
