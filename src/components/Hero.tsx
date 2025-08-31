@@ -64,14 +64,14 @@ export default function Hero() {
                 Hi,
               </motion.p>
 
-              {/* I'm */}
+              {/* I'm (escaped apostrophe here) */}
               <motion.p
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.3 }}
                 className="text-xl text-bold text-orange-400 sm:text-xl md:text-2xl text-gray-700 mb-4 pl-[220px]"
               >
-                I'm
+                I&apos;m
               </motion.p>
 
               {/* Main Name */}

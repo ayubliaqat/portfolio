@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Expertise from "@/components/Expertise";
 import Projects from "@/components/Portfolio";
-import Achievements from "@/components/Achievments";
 import Contact from "@/components/Contact";
 
 export const revalidate = 0;
