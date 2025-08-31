@@ -52,24 +52,24 @@ export default function Hero() {
                 : { duration: 8, repeat: Infinity, ease: "easeInOut" }
             }
           >
-            {/* Greeting + Heading (Stepped Zig-Zag Flow) */}
-            <div className="flex flex-col items-start mb-6">
+            {/* Greeting + Heading (Responsive Zig-Zag Flow) */}
+            <div className="flex flex-col items-start mb-6 w-full">
               {/* Hi */}
               <motion.p
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                className="text-lg text-bold text-orange-400 sm:text-xl md:text-2xl text-gray-700 mb-2 pl-[180px]"
+                className="text-lg font-bold text-orange-400 sm:text-xl md:text-2xl text-gray-700 mb-2 text-left sm:pl-16 md:pl-44"
               >
                 Hi,
               </motion.p>
 
-              {/* I'm (escaped apostrophe here) */}
+              {/* I'm */}
               <motion.p
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, delay: 0.3 }}
-                className="text-xl text-bold text-orange-400 sm:text-xl md:text-2xl text-gray-700 mb-4 pl-[220px]"
+                className="text-xl font-bold text-orange-400 sm:text-xl md:text-2xl text-gray-700 mb-4 text-left sm:pl-20 md:pl-52"
               >
                 I&apos;m
               </motion.p>

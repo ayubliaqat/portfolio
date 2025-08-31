@@ -78,26 +78,26 @@ export default function Contact() {
               name="name"
               placeholder="Your Name"
               required
-              className="neumorphic w-full px-4 py-3 rounded-xl shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:ring-2 focus:ring-[#1e3d59]"
+              className="neumorphic w-full px-4 py-3 rounded-xl border border-gray-300 shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400"
             />
             <input
               type="email"
               name="email"
               placeholder="you@example.com"
               required
-              className="neumorphic w-full px-4 py-3 rounded-xl shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:ring-2 focus:ring-[#1e3d59]"
+              className="neumorphic w-full px-4 py-3 rounded-xl border border-gray-300 shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400"
             />
             <textarea
               name="message"
               rows={4}
               placeholder="Write your message..."
               required
-              className="neumorphic w-full px-4 py-3 rounded-xl shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:ring-2 focus:ring-[#1e3d59]"
+              className="neumorphic w-full px-4 py-3 rounded-xl border border-gray-300 shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400"
             />
             <button
               type="submit"
               disabled={loading}
-              className="neumorphic w-full py-3 rounded-xl text-[#1e3d59] font-semibold shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] hover:shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] transition"
+              className="neumorphic w-full py-3 rounded-xl text-[#1e3d59] font-semibold shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] hover:shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] transition text-orange-400 hover:text-orange-400"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
@@ -120,19 +120,19 @@ export default function Contact() {
             <div className="flex flex-col gap-4 w-full max-w-xs">
               <a
                 href="mailto:mayub7540@gmail.com"
-                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-blue-600"
+                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-orange-400 focus:outline-none focus:text-orange-400"
               >
                 <Mail className="w-5 h-5" /> Email
               </a>
               <a
                 href="https://linkedin.com/in/ayubliaqat"
-                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-blue-600"
+                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-orange-400 focus:outline-none focus:text-orange-400"
               >
                 <Linkedin className="w-5 h-5" /> LinkedIn
               </a>
               <a
                 href="https://github.com/ayubliaqat"
-                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-blue-600"
+                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-orange-400 focus:outline-none focus:text-orange-400"
               >
                 <Github className="w-5 h-5" /> GitHub
               </a>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FaCode } from "react-icons/fa"; // Import icon
 
 export default function Skills() {
   const languages = [
@@ -30,18 +31,20 @@ export default function Skills() {
       className="min-h-screen flex flex-col items-center py-16 bg-gradient-to-b from-white to-gray-50"
       aria-label="Skills Section - Ayub Liaqat"
     >
-      {/* Section Title */}
+      {/* Section Title with Icon */}
       <motion.h2
-        className="text-4xl font-bold text-[#1e3d59] mb-4"
+        className="text-4xl font-bold text-[#1e3d59] mb-4 flex items-center gap-3"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        Skills
+        <FaCode className="text-orange-400 w-8 h-8" /> Skills
       </motion.h2>
+
+      {/* Description with mobile padding */}
       <motion.p
-        className="text-gray-600 mb-12 text-center max-w-2xl"
+        className="text-gray-600 mb-12 text-center max-w-2xl px-4 sm:px-6 md:px-0"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

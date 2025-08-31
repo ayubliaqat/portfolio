@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { FaUser } from "react-icons/fa"; // Import user icon
 
 export default function About() {
   const reduceMotion = useReducedMotion();
@@ -13,27 +14,23 @@ export default function About() {
       aria-labelledby="about-heading"
       className="min-h-screen flex flex-col items-center py-16 px-4 sm:px-6 md:px-8 scroll-mt-28"
     >
-      {/* Main Heading */}
+      {/* Main Heading with Icon */}
       <motion.h2
         id="about-heading"
-        className="text-4xl font-extrabold text-[#1e3d59] mb-12 text-center"
+        className="text-4xl font-extrabold text-[#1e3d59] mb-12 text-center flex items-center gap-3 justify-center"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        About Me
+        <FaUser className="text-orange-400 w-8 h-8" /> About Me
       </motion.h2>
 
       {/* Content Grid */}
       <motion.div
         className="neumorphic bg-white max-w-5xl w-full mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-6 items-center rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
-        animate={
-          reduceMotion ? undefined : { y: [0, -10, 0, 10, 0] }
-        }
-        transition={
-          reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }
-        }
+        animate={reduceMotion ? undefined : { y: [0, -10, 0, 10, 0] }}
+        transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         {/* Image FIRST on mobile, SECOND on desktop */}
         <motion.div
@@ -51,7 +48,6 @@ export default function About() {
               width={280}
               height={280}
               className="rounded-2xl object-cover"
-              // Lazy by default (better for About section); provide responsive sizes
               sizes="(min-width: 768px) 280px, 70vw"
             />
           </div>
@@ -107,7 +103,6 @@ export default function About() {
               Explore my resume for more <br /> detailed information.
             </p>
 
-            {/* Internal asset: use Link */}
             <Link
               href="/Ayub_Liaqat_Resume.pdf"
               target="_blank"
