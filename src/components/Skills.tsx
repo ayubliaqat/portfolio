@@ -8,6 +8,8 @@ export default function Skills() {
     "TypeScript",
     "Java",
     "C/C++",
+    "Python",
+    "Dart",
     "HTML/CSS",
   ];
 

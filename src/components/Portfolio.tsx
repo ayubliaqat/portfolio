@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
@@ -64,7 +64,9 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          🚀 Projects
+          <span aria-hidden="true">🚀</span>{" "}
+          <span className="sr-only">Portfolio</span>
+          Projects
         </motion.h2>
 
         {/* Project Grid */}
@@ -72,31 +74,38 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="neumorphic bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="neumorphic bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-300"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
+              aria-label={`Project: ${project.title}`}
             >
               <h3 className="text-2xl font-semibold text-[#1e3d59] mb-3">
                 {project.title}
               </h3>
-              <p className="text-gray-700 mb-4">{project.description}</p>
+              <p className="text-gray-700 text-base mb-4">
+                {project.description}
+              </p>
               <div className="flex gap-4">
-                <Link
+                <a
                   href={project.demo}
                   target="_blank"
-                  className="px-4 py-2 rounded-lg bg-[#1e3d59] text-white font-semibold hover:scale-105 transition-transform duration-300"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1e3d59] text-white font-semibold hover:scale-105 transition-transform duration-300"
                 >
+                  <ExternalLink className="w-4 h-4" />
                   Live Demo
-                </Link>
-                <Link
+                </a>
+                <a
                   href={project.github}
                   target="_blank"
-                  className="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 font-semibold hover:scale-105 transition-transform duration-300"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-200 text-gray-800 font-semibold hover:scale-105 transition-transform duration-300"
                 >
+                  <Github className="w-4 h-4" />
                   GitHub
-                </Link>
+                </a>
               </div>
             </motion.div>
           ))}

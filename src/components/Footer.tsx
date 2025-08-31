@@ -28,12 +28,15 @@ export default function Footer() {
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           <motion.div
-            className="w-full max-w-md sm:max-w-lg md:max-w-2xl text-center px-6 py-3 rounded-2xl bg-white shadow-lg border border-gray-200 text-gray-800 text-xs sm:text-sm md:text-base"
+            className="w-full max-w-md sm:max-w-lg md:max-w-2xl text-center px-6 py-3 rounded-2xl bg-white shadow-lg border border-gray-200 text-gray-800 text-xs sm:text-sm md:text-base leading-relaxed"
             animate={{ y: [0, -2, 0, 2, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
-            © {new Date().getFullYear()} <span className="font-semibold">Ayub Liaqat</span>.  
-            Built with <span aria-hidden="true">☕</span> and <span aria-hidden="true">🧑‍💻</span>.
+            <p>
+              <span aria-label="Copyright" role="text">©</span> {new Date().getFullYear()}{" "}
+              <span className="font-semibold">Ayub Liaqat</span>.  
+              Built with <span aria-hidden="true">☕</span> and <span aria-hidden="true">🧑‍💻</span>.
+            </p>
           </motion.div>
         </motion.footer>
       )}
