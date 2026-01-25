@@ -42,7 +42,8 @@ export default function Contact() {
       } else {
         setMessage(`❌ ${result.error || "Failed to send message."}`);
       }
-    } catch (err: unknown) {
+    } catch (_err: unknown) {
+      // Prefixed with underscore to satisfy ESLint unused variable rule
       setMessage("❌ Connection error. Please try again.");
     } finally {
       setLoading(false);
@@ -62,11 +63,12 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-black text-[#1e3d59] mb-4">Let's Connect</h2>
+          {/* FIXED: Added &apos; for Let's */}
+          <h2 className="text-4xl md:text-5xl font-black text-[#1e3d59] mb-4">Let&apos;s Connect</h2>
           <div className="h-1.5 w-24 bg-orange-400 rounded-full mb-6" />
           <p className="text-gray-500 max-w-xl font-medium">
             Have a project in mind or looking for a developer who understands raw logic? 
-            Let's build something extraordinary.
+            Let&apos;s build something extraordinary.
           </p>
         </motion.div>
 
@@ -164,13 +166,14 @@ export default function Contact() {
 
             {/* Availability Badge */}
             <div className="p-8 rounded-[2rem] bg-orange-50 border border-orange-100">
-               <div className="flex items-center gap-3 text-orange-600 font-bold mb-2">
-                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                 Open for Opportunities
-               </div>
-               <p className="text-sm text-orange-800 font-medium">
-                 Currently available for Next.js and Full-Stack roles. Let's discuss your vision.
-               </p>
+                <div className="flex items-center gap-3 text-orange-600 font-bold mb-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  Open for Opportunities
+                </div>
+                <p className="text-sm text-orange-800 font-medium">
+                  {/* FIXED: Added &apos; for Let's */}
+                  Currently available for Next.js and Full-Stack roles. Let&apos;s discuss your vision.
+                </p>
             </div>
           </motion.div>
 
