@@ -6,28 +6,30 @@ import Expertise from "@/components/Expertise";
 import Projects from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 
-export const revalidate = 0;
+export const revalidate = 0; // Ensures fresh content for your custom CMS logic
 
-// SEO Metadata
+// REFINED PRO SEO METADATA
 export const metadata = {
-  title: "Ayub Liaqat | Full Stack Website Developer",
+  title: "Ayub Liaqat | Full Stack Next.js Engineer",
   description:
-    "I am Ayub Liaqat, a Full Stack Website Developer specializing in modern, SEO-friendly, and scalable web applications using Next.js, React, Node.js, and Supabase.",
+    "Specializing in high-performance Next.js architectures, custom CMS engines, and native server-side logic. Expertise in MongoDB, TypeScript, and C# Game Development.",
   keywords:
-    "Ayub Liaqat, Full Stack Developer, Web Development, Next.js, React, Node.js, Supabase, Portfolio, SEO-friendly websites",
+    "Ayub Liaqat, Next.js Developer, Full Stack Engineer, MongoDB, TypeScript, Custom CMS, Game Development Tkxel, Portfolio",
   authors: [{ name: "Ayub Liaqat" }],
+  alternates: {
+    canonical: "https://ayubliaqat.vercel.app", // Use your actual domain
+  },
   openGraph: {
-    title: "Ayub Liaqat | Full Stack Website Developer",
-    description:
-      "Explore my portfolio showcasing modern web development, SEO strategies, and scalable digital solutions.",
-    url: "https://ayubliaqat.dev", // replace with your domain
+    title: "Ayub Liaqat | Full Stack Next.js Engineer",
+    description: "Building zero-dependency, high-performance web applications from the ground up.",
+    url: "https://ayubliaqat.vercel.app",
     siteName: "Ayub Liaqat Portfolio",
     images: [
       {
-        url: "/og-image.png", // Add your OpenGraph preview image
+        url: "/og-image.png", 
         width: 1200,
         height: 630,
-        alt: "Preview of Ayub Liaqat Portfolio",
+        alt: "Ayub Liaqat Portfolio Preview",
       },
     ],
     locale: "en_US",
@@ -35,11 +37,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayub Liaqat | Full Stack Website Developer",
-    description:
-      "Full Stack Web Developer — Next.js, React, Node.js, Supabase. Explore my portfolio and expertise.",
+    title: "Ayub Liaqat | Full Stack Engineer",
+    description: "Next.js Architect & Custom Engine Developer.",
     images: ["/og-image.png"],
-    creator: "@ayubliaqat", // if you have Twitter, else remove
   },
 };
 
@@ -49,34 +49,38 @@ export default function HomePage() {
       className="min-h-screen flex flex-col font-sans text-gray-900 bg-white"
       role="main"
     >
-      {/* HERO */}
-      <header>
+      {/* PRO TIP: The Hero is part of the 'article' of your life. 
+          Use section for better SEO indexing.
+      */}
+      <section id="home" aria-label="Introduction">
         <Hero />
-      </header>
+      </section>
 
-      {/* ABOUT */}
-      <section id="about" aria-label="About Ayub Liaqat">
+      <section id="about" className="scroll-mt-20" aria-label="About Ayub Liaqat">
         <About />
       </section>
 
-      {/* SKILLS */}
-      <section id="skills" aria-label="Technical Skills and Technologies">
+      <section id="skills" className="scroll-mt-20" aria-label="Technical Skills">
         <Skills />
       </section>
 
-      {/* EXPERTISE */}
-      <section id="expertise" aria-label="Professional Expertise">
+      <section id="expertise" className="scroll-mt-20" aria-label="Professional Expertise">
         <Expertise />
       </section>
 
-      {/* PROJECTS */}
-      <section id="projects" aria-label="Portfolio Projects">
+      <section id="projects" className="scroll-mt-20" aria-label="Portfolio Projects">
         <Projects />
       </section>
 
-      {/* CONTACT */}
-      <footer id="contact" aria-label="Contact Ayub Liaqat">
+      <section id="contact" className="scroll-mt-20 bg-gray-50" aria-label="Contact Information">
         <Contact />
+      </section>
+
+      {/* PRO FOOTER: Separate from Contact for better structure */}
+      <footer className="py-10 border-t border-gray-100 bg-white text-center">
+        <p className="text-sm text-gray-400 font-medium">
+          © {new Date().getFullYear()} Ayub Liaqat. Built with **Next.js 15** & Native Logic.
+        </p>
       </footer>
     </main>
   );

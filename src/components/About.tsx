@@ -1,121 +1,117 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, Variants } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
-import { FaUser } from "react-icons/fa"; // Import user icon
+import { FaUser, FaGraduationCap, FaCode } from "react-icons/fa";
 
 export default function About() {
   const reduceMotion = useReducedMotion();
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: "easeOut" } 
+    }
+  };
 
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="min-h-screen flex flex-col items-center py-16 px-4 sm:px-6 md:px-8 scroll-mt-28"
+      className="min-h-screen flex flex-col items-center py-20 px-4 sm:px-6 md:px-8 bg-white scroll-mt-28"
     >
-      {/* Main Heading with Icon */}
-      <motion.h2
-        id="about-heading"
-        className="text-4xl font-extrabold text-[#1e3d59] mb-12 text-center flex items-center gap-3 justify-center"
-        initial={{ opacity: 0, y: -30 }}
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center mb-16"
       >
-        <FaUser className="text-orange-400 w-8 h-8" /> About Me
-      </motion.h2>
+        <div className="flex items-center gap-3 mb-4">
+          <FaUser className="text-orange-400 w-8 h-8" />
+          <h2 id="about-heading" className="text-4xl md:text-5xl font-black text-[#1e3d59]">
+            About Me
+          </h2>
+        </div>
+        <div className="h-1.5 w-20 bg-orange-400 rounded-full" />
+      </motion.div>
 
-      {/* Content Grid */}
-      <motion.div
-        className="neumorphic bg-white max-w-5xl w-full mx-auto p-6 md:p-10 grid md:grid-cols-2 gap-6 items-center rounded-2xl shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
-        animate={reduceMotion ? undefined : { y: [0, -10, 0, 10, 0] }}
-        transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      >
-        {/* Image FIRST on mobile, SECOND on desktop */}
-        <motion.div
-          className="flex justify-center md:justify-end order-1 md:order-2"
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      {/* Main Grid */}
+      <div className="max-w-6xl w-full mx-auto grid md:grid-cols-12 gap-10 items-start">
+        
+        {/* LEFT: The Image Profile */}
+        <motion.div 
+          className="md:col-span-5 flex justify-center sticky top-32"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          whileHover={{ scale: 1.04 }}
         >
-          <div className="neumorphic bg-white rounded-2xl p-4 shadow-[0_8px_24px_rgba(0,0,0,0.15)]">
-            <Image
-              src="/assets/ayub3.png"
-              alt="Ayub Liaqat — Full Stack Developer"
-              width={280}
-              height={280}
-              className="rounded-2xl object-cover"
-              sizes="(min-width: 768px) 280px, 70vw"
-            />
+          <div className="relative group">
+            {/* Neumorphic Frame */}
+            <div className="p-4 rounded-[2rem] bg-white shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] border border-gray-50 transition-transform duration-500 group-hover:scale-[1.02]">
+              <Image
+                src="/assets/ayub3.png" 
+                alt="Ayub Liaqat"
+                width={400}
+                height={400}
+                className="rounded-[1.5rem] object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+                priority
+              />
+            </div>
+            {/* Decorative Badge */}
+            <div className="absolute -bottom-6 -right-6 bg-[#1e3d59] text-white p-6 rounded-2xl shadow-xl hidden lg:block">
+              <p className="text-2xl font-bold">Next.Js</p>
+              <p className="text-xs uppercase tracking-widest opacity-80">Career-Level Developer</p>
+            </div>
           </div>
         </motion.div>
 
-        {/* Text/Cards SECOND on mobile, FIRST on desktop */}
-        <div className="flex flex-col gap-6 order-2 md:order-1">
+        {/* RIGHT: The Details */}
+        <div className="md:col-span-7 flex flex-col gap-8">
+          
+          {/* Professional Bio */}
+          <motion.div 
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="p-8 rounded-3xl bg-white shadow-[10px_10px_30px_#e2e2e2,-10px_-10px_30px_#ffffff] border border-gray-50"
+          >
+            <h3 className="text-2xl font-bold text-[#1e3d59] mb-4 flex items-center gap-2">
+              <FaCode className="text-orange-400" /> My Developer Journey
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              I am a specialized <strong>Next.js Developer</strong> with a deep passion for 
+              architecting scalable web applications. My approach is centered on 
+              <strong>clean code</strong> and <strong>native performance</strong>. I don&apos;t 
+              just build interfaces; I build complete digital ecosystems with custom-engineered 
+              backend logic.
+            </p>
+          </motion.div>
+
           {/* Education Card */}
-          <motion.div
-            className="neumorphic bg-white rounded-2xl p-6 shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.div 
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.04 }}
+            className="p-8 rounded-3xl bg-white shadow-[10px_10px_30px_#e2e2e2,-10px_-10px_30px_#ffffff] border border-gray-50"
           >
-            <h3 className="text-2xl font-bold text-[#1e3d59] mb-3">
-              🎓 Education
+            <h3 className="text-2xl font-bold text-[#1e3d59] mb-4 flex items-center gap-2">
+              <FaGraduationCap className="text-orange-400" /> Education
             </h3>
-
-            <h4 className="text-xl font-semibold text-[#1e3d59] mb-2">
-              BS Information Technology (BS IT)
-            </h4>
-
-            <p className="text-gray-700 leading-relaxed mb-2">
-              University of Education, Lahore.
-            </p>
-
-            <h4 className="text-xl font-semibold text-[#1e3d59] mb-2">
-              Specialized In
-            </h4>
-
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed">
-              <li>Web Development</li>
-              <li>Database Management</li>
-              <li>Software Engineering</li>
-            </ul>
+            <div className="border-l-4 border-orange-400 pl-4">
+              <h4 className="text-xl font-bold text-[#1e3d59]">BS Information Technology</h4>
+              <p className="text-gray-500 font-medium">University of Education, Lahore</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+              </div>
+            </div>
           </motion.div>
 
-          {/* Resume Card */}
-          <motion.div
-            className="neumorphic bg-white rounded-2xl p-6 shadow-[0_8px_24px_rgba(0,0,0,0.15)]"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            whileHover={{ scale: 1.04 }}
-          >
-            <h3 className="text-2xl font-bold text-[#1e3d59] mb-3">
-              📄 Resume
-            </h3>
-            <p className="text-gray-700 mb-4">
-              Explore my resume for more <br /> detailed information.
-            </p>
-
-            <Link
-              href="/Ayub_Liaqat_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-              className="px-6 py-2 rounded-xl font-semibold bg-[#1e3d59] text-white shadow-md hover:scale-105 transition-transform duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1e3d59]"
-              aria-label="Download Resume PDF of Ayub Liaqat"
-            >
-              Download Resume
-            </Link>
-          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

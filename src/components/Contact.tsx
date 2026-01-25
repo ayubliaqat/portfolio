@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Send } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -14,11 +14,14 @@ export default function Contact() {
     setMessage("");
 
     const form = e.currentTarget;
-    const name = (form.elements.namedItem("name") as HTMLInputElement).value.trim();
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim();
-    const messageText = (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim();
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name")?.toString().trim(),
+      email: formData.get("email")?.toString().trim(),
+      message: formData.get("message")?.toString().trim(),
+    };
 
-    if (!name || !email || !messageText) {
+    if (!data.name || !data.email || !data.message) {
       setMessage("❌ Please fill in all fields.");
       setLoading(false);
       return;
@@ -28,7 +31,7 @@ export default function Contact() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message: messageText }),
+        body: JSON.stringify(data),
       });
 
       const result = await res.json();
@@ -40,12 +43,7 @@ export default function Contact() {
         setMessage(`❌ ${result.error || "Failed to send message."}`);
       }
     } catch (err: unknown) {
-      console.error("Contact form error:", err);
-      if (err instanceof Error) {
-        setMessage(`❌ ${err.message}`);
-      } else {
-        setMessage("❌ Something went wrong. Try again later.");
-      }
+      setMessage("❌ Connection error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -54,90 +52,128 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center py-16 bg-white mx-4 sm:mx-10 md:mx-20 mb-20"
+      className="py-24 bg-white scroll-mt-28"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 w-full">
-        <motion.h2
-          className="text-4xl font-bold text-center text-[#1e3d59] mb-12"
-          initial={{ opacity: 0, y: -30 }}
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Title */}
+        <motion.div 
+          className="flex flex-col items-center mb-16 text-center"
+          initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
         >
-          📩 Get in Touch
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-black text-[#1e3d59] mb-4">Let's Connect</h2>
+          <div className="h-1.5 w-24 bg-orange-400 rounded-full mb-6" />
+          <p className="text-gray-500 max-w-xl font-medium">
+            Have a project in mind or looking for a developer who understands raw logic? 
+            Let's build something extraordinary.
+          </p>
+        </motion.div>
 
-        <div className="neumorphic bg-white grid md:grid-cols-2 gap-6 sm:gap-12">
-          {/* Contact Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            className="neumorphic bg-white rounded-2xl p-6 sm:p-8 shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] space-y-6"
+        <div className="grid md:grid-cols-12 gap-12 items-start">
+          
+          {/* Contact Form - Ubra Hua Card */}
+          <motion.div 
+            className="md:col-span-7 bg-white rounded-[2.5rem] p-8 md:p-10 shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] border border-gray-50"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              className="neumorphic w-full px-4 py-3 rounded-xl border border-gray-300 shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-              className="neumorphic w-full px-4 py-3 rounded-xl border border-gray-300 shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400"
-            />
-            <textarea
-              name="message"
-              rows={4}
-              placeholder="Write your message..."
-              required
-              className="neumorphic w-full px-4 py-3 rounded-xl border border-gray-300 shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-400"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="neumorphic w-full py-3 rounded-xl text-[#1e3d59] font-semibold shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] hover:shadow-[inset_4px_4px_8px_#d1d9e6,inset_-4px_-4px_8px_#ffffff] transition text-orange-400 hover:text-orange-400"
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-            {message && (
-              <p
-                className={`text-center mt-2 ${
-                  message.startsWith("✅") ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {message}
-              </p>
-            )}
-          </motion.form>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-[#1e3d59] ml-2">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Ayub Liaqat"
+                    required
+                    className="w-full px-5 py-4 rounded-2xl bg-white shadow-[inset_4px_4px_8px_#e2e2e2,inset_-4px_-4px_8px_#ffffff] border-none focus:ring-2 focus:ring-orange-400 outline-none text-gray-700 font-medium transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-[#1e3d59] ml-2">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    className="w-full px-5 py-4 rounded-2xl bg-white shadow-[inset_4px_4px_8px_#e2e2e2,inset_-4px_-4px_8px_#ffffff] border-none focus:ring-2 focus:ring-orange-400 outline-none text-gray-700 font-medium transition-all"
+                  />
+                </div>
+              </div>
 
-          {/* Social Links */}
-          <motion.div className="flex flex-col justify-center items-center md:items-start space-y-6">
-            <p className="text-gray-700 text-lg text-center md:text-left">
-              Feel free to connect with me on social platforms or drop me an email.
-            </p>
-            <div className="flex flex-col gap-4 w-full max-w-xs">
-              <a
-                href="mailto:mayub7540@gmail.com"
-                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-orange-400 focus:outline-none focus:text-orange-400"
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-[#1e3d59] ml-2">Message</label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  placeholder="How can I help you?"
+                  required
+                  className="w-full px-5 py-4 rounded-2xl bg-white shadow-[inset_4px_4px_8px_#e2e2e2,inset_-4px_-4px_8px_#ffffff] border-none focus:ring-2 focus:ring-orange-400 outline-none text-gray-700 font-medium transition-all resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-4 rounded-2xl bg-[#1e3d59] text-white font-bold shadow-lg hover:bg-orange-400 transition-all flex items-center justify-center gap-2 group"
               >
-                <Mail className="w-5 h-5" /> Email
-              </a>
-              <a
-                href="https://linkedin.com/in/ayubliaqat"
-                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-orange-400 focus:outline-none focus:text-orange-400"
-              >
-                <Linkedin className="w-5 h-5" /> LinkedIn
-              </a>
-              <a
-                href="https://github.com/ayubliaqat"
-                className="neumorphic flex items-center gap-3 px-4 py-2 rounded-xl text-[#1e3d59] hover:text-orange-400 focus:outline-none focus:text-orange-400"
-              >
-                <Github className="w-5 h-5" /> GitHub
-              </a>
+                {loading ? "Processing..." : "Send Message"}
+                <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </button>
+
+              {message && (
+                <motion.p 
+                  initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                  className={`text-center font-bold mt-4 ${message.startsWith("✅") ? "text-green-600" : "text-red-500"}`}
+                >
+                  {message}
+                </motion.p>
+              )}
+            </form>
+          </motion.div>
+
+          {/* Social Sidebar */}
+          <motion.div 
+            className="md:col-span-5 space-y-8"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-white rounded-[2.5rem] p-8 shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] border border-gray-50">
+              <h3 className="text-2xl font-bold text-[#1e3d59] mb-6">Connect Directly</h3>
+              <div className="flex flex-col gap-4">
+                {[
+                  { icon: <Mail />, label: "Email", href: "mailto:mayub7540@gmail.com", color: "hover:text-red-500" },
+                  { icon: <Linkedin />, label: "LinkedIn", href: "https://linkedin.com/in/ayubliaqat", color: "hover:text-blue-600" },
+                  { icon: <Github />, label: "GitHub", href: "https://github.com/ayubliaqat", color: "hover:text-black" },
+                ].map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.href}
+                    target="_blank"
+                    className={`flex items-center gap-4 p-4 rounded-2xl bg-white shadow-[6px_6px_12px_#c5c5c5,-6px_-6px_12px_#ffffff] text-[#1e3d59] font-bold transition-all hover:scale-[1.02] active:scale-[0.98] ${social.color}`}
+                  >
+                    <span className="text-orange-400">{social.icon}</span>
+                    {social.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Availability Badge */}
+            <div className="p-8 rounded-[2rem] bg-orange-50 border border-orange-100">
+               <div className="flex items-center gap-3 text-orange-600 font-bold mb-2">
+                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                 Open for Opportunities
+               </div>
+               <p className="text-sm text-orange-800 font-medium">
+                 Currently available for Next.js and Full-Stack roles. Let's discuss your vision.
+               </p>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
