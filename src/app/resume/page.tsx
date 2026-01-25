@@ -1,6 +1,8 @@
 "use client";
+
 import { usePDF } from "react-to-pdf";
 import { Globe, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export default function ResumePage() {
   const { toPDF, targetRef } = usePDF({ filename: "Ayub_Liaqat_Resume.pdf" });
@@ -24,11 +26,16 @@ export default function ResumePage() {
           {/* Left Column (Modern Blue Sidebar) */}
           <div className="w-full md:w-1/3 bg-[#1e3d59] text-white flex flex-col py-10 px-8">
             <div className="flex justify-center mb-8">
-              <img
-                src="/assets/ayub3.png"
-                alt="Ayub Liaqat"
-                className="w-32 h-32 object-cover rounded-2xl border-4 border-orange-400 shadow-xl"
-              />
+              {/* FIXED: Using Next.js Image for better performance and build success */}
+              <div className="relative w-32 h-32 overflow-hidden rounded-2xl border-4 border-orange-400 shadow-xl">
+                <Image
+                  src="/assets/ayub3.png"
+                  alt="Ayub Liaqat"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
 
             <div className="space-y-10">
@@ -58,6 +65,7 @@ export default function ResumePage() {
                   <a 
                     href="https://ayubliaqat.vercel.app/" 
                     target="_blank" 
+                    rel="noopener noreferrer"
                     className="flex items-center justify-between gap-2 bg-white text-[#1e3d59] p-3 rounded-xl font-black text-[12px] shadow-lg hover:bg-orange-400 hover:text-white transition-all group"
                   >
                     <div className="flex items-center gap-2">

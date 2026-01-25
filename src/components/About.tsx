@@ -1,11 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import { FaUser, FaGraduationCap, FaCode } from "react-icons/fa";
 
 export default function About() {
-  const reduceMotion = useReducedMotion();
+  // FIXED: Removed unused useReducedMotion and reduceMotion variable
 
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -62,7 +62,7 @@ export default function About() {
             </div>
             {/* Decorative Badge */}
             <div className="absolute -bottom-6 -right-6 bg-[#1e3d59] text-white p-6 rounded-2xl shadow-xl hidden lg:block">
-              <p className="text-2xl font-bold">Next.Js</p>
+              <p className="text-2xl font-bold">Next.js</p>
               <p className="text-xs uppercase tracking-widest opacity-80">Career-Level Developer</p>
             </div>
           </div>
