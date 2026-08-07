@@ -10,21 +10,35 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.7.0",
+    "@react-three/postprocessing": "^3.0.4",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.12",
+    "framer-motion": "^12.43.0",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "leva": "^0.10.1",
     "lucide-react": "^0.539.0",
+    "maath": "^0.10.8",
+    "meshline": "^3.3.1",
     "next": "^16.1.4",
     "nodemailer": "^7.0.5",
     "postcss": "^8.5.6",
+    "postprocessing": "^6.39.4",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-hook-form": "^7.62.0",
     "react-icons": "^5.5.0",
     "react-to-pdf": "^2.0.1",
+    "react-use": "^17.6.1",
+    "stats.js": "^0.17.0",
     "swr": "^2.3.6",
     "tailwindcss": "^3.2.7",
-    "zod": "^4.0.17"
+    "three": "^0.185.1",
+    "three-stdlib": "^2.36.1",
+    "zod": "^4.0.17",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -34,6 +48,7 @@
     "@types/react-dom": "^19.1.7",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "gltfjsx": "^6.5.3",
     "typescript": "^5.9.2"
   }
 }

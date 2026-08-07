@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,18 +8,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      /* ==========================================================================
+         DESIGN SYSTEM COLOR TOKENS (RGB-based for precise opacity and theme support)
+         ================================================================          */
       colors: {
-        primary: "#6C63FF", // modern purple accent
-        secondary: "#4CAF50", // soft green
-        dark: "#1E1E1E",
-        light: "#F5F7FA",
-      },
-      fontFamily: {
-        sans: ["Inter", "Poppins", "sans-serif"],
-      },
-      boxShadow: {
-        neumorphic: "10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff",
-        "neumorphic-inset": "inset 10px 10px 20px #d1d9e6, inset -10px -10px 20px #ffffff",
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        card: "rgb(var(--card) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
+        border: "var(--border)",
       },
     },
   },
